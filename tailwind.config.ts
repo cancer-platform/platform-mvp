@@ -16,6 +16,10 @@ const config: Config = {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
       },
+      colors: {
+        'paragraph': '#213359', // Paragraph color
+        'header': '#223A6A', // Header color
+      },
     },
   },
   plugins: [],
