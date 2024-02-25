@@ -36,12 +36,18 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## Todo list (I want to do & I definitely Should DoO)
+- Entire Ptoject Todo
+    - [x] Poppins Google Font implemented
+    - [x] Tailwind CSS implemented
+    - [ ] Merge Tailwind with BEM model
+    - [ ] Implement a BEM based Components system
+    - [x] Built-in Link component implemented
+    - [x] Layout & Pages system implemented
+    - [ ] Built-in Image component implemented
+    - [ ] Add more pages / layouts
+    - [ ] add an icon.png to app folder as icon for entire project
+- Landing Page
+    - [ ] define & export const metadata
+    - [ ] check global css import in layout
+    - [ ] just for an experiment move some code to a component (s) and place it in the components folder
 
-- [x] Poppins Google Font implemented
-- [x] Tailwind CSS implemented
-- [ ] Merge Tailwind with BEM model
-- [ ] Implement a BEM based Components system
-- [x] Built-in Link component implemented
-- [x] Layout & Pages system implemented
-- [ ] Built-in Image component implemented
-- [ ] Add more pages / layouts
