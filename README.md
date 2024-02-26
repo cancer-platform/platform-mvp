@@ -66,5 +66,8 @@ You also find a list with all supported filenames & detailed explanations in the
     - [ ] check global css import in layout
     - [ ] just for an experiment move some code to a component (s) and place it in the components folder
         - [ ] Make use of @components pseudonym  
+- [ ] Questionnaire Page
+    - Define each question as different dynamic route under questionnaire/ folder with ability to list through questions and review questions / answers
+    - Same for profile? (maybe / think / review)
 
 
