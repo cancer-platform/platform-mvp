@@ -43,7 +43,7 @@ You also find a list with all supported filenames & detailed explanations in the
     - [x] Test of committing from IDE with PGP signature - Fail
     - [ ] Add more pages / layouts
         - [ ] Landing Page
-            - [x] Set up Routing dependent on current url - let`s make this through layout
+            - [x] Set up Link to the boarding pages
             - [ ] define & export const metadata
             - [ ] check global css import in layout
         - [ ] Boarding Pages
