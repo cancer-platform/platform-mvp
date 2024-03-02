@@ -3267,7 +3267,7 @@ __metadata:
     prettier-eslint: "npm:^16.3.0"
     react: "npm:^18"
     react-dom: "npm:^18"
-    tailwindcss: "npm:^3.3.0"
+    tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5"
   languageName: unknown
   linkType: soft
@@ -3856,7 +3856,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.3.0":
+"tailwindcss@npm:^3.4.1":
   version: 3.4.1
   resolution: "tailwindcss@npm:3.4.1"
   dependencies:

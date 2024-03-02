@@ -23,22 +23,30 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-8">
           <div className="flex items-center">
-            <Image
-              src="/envelope__icon.png"
-              alt="Envelope Icon"
-              className="w-4 h-4"
-              width={24}
-              height={24}
-            />
             <input
               type="text"
               placeholder="Enter your email"
-              className="ml-2"
+              className="
+                        mt-0.5
+                        ml-2 
+                        w-full 
+                        h-14 
+                        border-[#221F1F1A] 
+                        bg-[url('/envelope__icon.png')] 
+                        bg-no-repeat 
+                        bg-[10%]
+                        py-2 
+                        pr-8 
+                        pl-20 
+                        shadow
+                        bg-transparent
+                        font-inherit
+                        text-inherit"
             />
           </div>
-          <div className="flex items-center mt-2">
+          <div className="flex items-center mt-6">
             <Image
               src="/lock__icon.png"
               alt="Lock Icon"
@@ -49,7 +57,7 @@ const LoginPage = () => {
             <input
               type="password"
               placeholder="Enter your password"
-              className="ml-2"
+              className="ml-2 mt-px	input-with-images"
             />
             <Image
               src="/eye__icon.png"

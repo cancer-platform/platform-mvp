@@ -31,3 +31,18 @@ body {
     text-wrap: balance;
   }
 }
+
+.input-with-images {
+  background-image: url('/lock__icon.png'), url('/eye__icon.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left, right;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
+    background-image: url('/lock__icon.png'), url('/eye__icon.png') !important;
+}
