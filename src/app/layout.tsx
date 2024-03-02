@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className="flex items-center justify-center min-h-screen font-poppins">
         <main className="w-[360px] h-[800px] bg-white shadow">
-          <div className=" flex flex-col items-center justify-center h-screen">
+          <div className=" flex flex-col items-center justify-center">
             {children}
           </div>
         </main>

@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <>
       <header className="bg-gray-200 py-4" />
-      <section className="content-area flex flex-col items-center p-4 max-w-xs w-full">
+      <section className="bg-white text-center flex flex-col items-center p-4 max-w-xs w-full">
         <Image
           src="/landing__logo.png"
           alt="First"
@@ -13,7 +13,7 @@ export default function HomePage() {
           height="244"
           className="mb-4 max-w-full h-auto"
         />
-        <p className="landing-text-width text-paragraph mb-4 font-poppins text-16 font-semibold leading-24 tracking-normal text-center text-blue-900">
+        <p className="w-40 mb-4 text-16 font-semibold leading-24 tracking-normal text-center text-blue-900">
           <Link href="/sign-in/"> Self-management App for Cancer </Link>
         </p>
         <Image
