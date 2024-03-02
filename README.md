@@ -8,6 +8,7 @@ First, run the development server:
 yarn dev
 # or
 yarn run dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -20,10 +21,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## Memo
+
 ### Here's a list of reserved filenames in Next.js
+
 These filenames are only reserved when creating them inside the app/ folder (or any sub-folder).
 Outside the app/ folder, these filenames are not treated in any special way.
 You also find a list with all supported filenames & detailed explanations in the official docs: https://nextjs.org/docs/app/api-reference/file-conventions
+
 - page.js => Create a new page (e.g., app/about/page.js creates a <your-domain>/about page)
 - layout.js => Create a new layout that wraps sibling and nested pages
 - not-found.js => Fallback page for "Not Found" errors (thrown by sibling or nested pages or layouts)
@@ -34,44 +38,59 @@ You also find a list with all supported filenames & detailed explanations in the
 - middleware.js => API reference for the middleware.js file.
 
 ## Todo list (I want to do & I definitely Should Do)
+
 - [ ] Definitely
-    - [x] Poppins Google Font implemented
-    - [x] Tailwind CSS implemented
-    - [x] Built-in Link component implemented
-    - [x] Layout & Pages system implemented
-    - [x] Built-in Image component implemented
-    - [x] Test of committing from IDE with PGP signature - Fail
-    - [ ] Create components for email field, password field, submit button
-    - [ ] Add more pages / layouts
-        - [ ] Landing Page
-            - [x] Set up Link to the boarding pages
-            - [ ] define & export const metadata
-            - [ ] check global css import in layout
-        - [ ] Boarding Pages
-            - [ ] Definitely
-                - [ ] Tune styles for auto-fill fields
-            - [ ] Maybe / Later
-                - [ ] Set up Routing dependent on current url - let`s make this through layout
-        - [ ] Questionnaire Page
-            - [ ] Define each question as different dynamic route under questionnaire/ folder with ability to list through questions and review questions / answers
-        - [ ] Profile Page
-        - Same for profile? (maybe / think / review)
-    - [ ] Implement a BEM based Components system
-        - [ ] just for an experiment move some code to a component (s) and place it in the components folder
-        - [ ] Make use of @components pseudonym
-    - [ ] Optimization of fonts https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
+  - [x] Poppins Google Font implemented
+  - [x] Tailwind CSS implemented
+  - [x] Built-in Link component implemented
+  - [x] Layout & Pages system implemented
+  - [x] Built-in Image component implemented
+  - [x] Test of committing from IDE with PGP signature - Fail
+  - [ ] Create components for email field, password field, submit button
+  - [ ] Add more pages / layouts
+    - [ ] Landing Page
+      - [x] Set up Link to the boarding pages
+      - [ ] define & export const metadata
+      - [ ] check global css import in layout
+    - [ ] Auth Pages
+      - [ ] Definitely
+        - [ ] Tune styles for auto-fill fields
+        - [ ] Sign-up page
+        - [ ] Sign-in page
+          - [ ] JSX markup
+          - [ ] Back-End
+            - [ ] Self Hosted
+            - [ ] Google Cloud
+        - [ ] Restore page
+      - [ ] Maybe / Later
+        - [ ] Set up Routing dependent on current url - let`s make this through layout
+        - [ ] Merge accounts page
+    - [ ] Questionnaire Page
+      - [ ] Define each question as different dynamic route under questionnaire/ folder with ability to list through questions and review questions / answers
+    - [ ] Profile Page
+    - Same for profile? (maybe / think / review)
+  - [ ] Implement a BEM based Components system
+    - [ ] just for an experiment move some code to a component (s) and place it in the components folder
+    - [ ] Make use of @components pseudonym
+  - [ ] Optimization of fonts https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 - [ ] Maybe / later
-    - [ ] Merge Tailwind with BEM model
-    - [ ] Add an icon.png to app folder as icon for entire project
-    - [ ] Add const metadata
-
-
-
-
-
-
-
-
-
-
-```
+  - [ ] Merge Tailwind with BEM model
+  - [ ] Add an icon.png to app folder as icon for entire project
+  - [ ] Add const metadata
+  - [ ] Add Next auth with Google cloud: To add a Google authentication button to your Next.js project using NextAuth, you'll need to follow a series of steps involving installation of the NextAuth library, setting up API routes, configuring environment variables, and then integrating the authentication flow into your app. Here's a simplified guide based on the detailed instructions from the sources:
+    - [ ] Install NextAuth: First, add NextAuth to your project:
+    ```bash
+    yarn add next-auth
+    ```
+    - [ ] Configure Google OAuth Credentials:
+      - [ ] Create a project in the Google Cloud Console and navigate to the Credentials tab to set up OAuth 2.0 Client IDs.
+      - [ ] You'll be prompted to configure the consent screen and then you can create your OAuth 2.0 credentials by specifying your application type and authorized redirect URIs. For development, you can use http://localhost:3000/api/auth/callback/google as the redirect URI.
+      - [ ] Add API Routes for Authentication:
+        - [ ] Create a file named [...nextauth].ts in the pages/api/auth directory of your Next.js project and configure it with GoogleProvider. Use the credentials obtained from Google Cloud Console for clientId and clientSecret.
+        - [ ] Set Up Environment Variables:
+          - [ ] Create a .env.local file at the root of your project to store your Google Client ID and Secret, along with other necessary NextAuth configurations like NEXTAUTH_URL (the base URL of your site) and NEXTAUTH_SECRET (a secret used to encrypt your authentication tokens).
+        - [ ] Wrap Your Application with SessionProvider:
+          - [ ] In your \_app.tsx or \_app.js file, wrap the main component with SessionProvider from next-auth/react to enable session handling across your application.
+        - [ ] Utilize Authentication Hooks in Your Components: Use useSession, signIn, and signOut from next-auth/react in your components to manage user authentication. You can display a login button when the user is not signed in and show their information or a sign-out button when they are.
+        - [ ] This process integrates Google authentication into your Next.js application, allowing users to sign in with their Google accounts. For detailed code snippets and further explanations, you can refer to the guides on DEV Community​​ and devanswers.ru​​.
+        - [ ] Remember to replace placeholder values such as YOUR_CLIENT_ID, YOUR_CLIENT_SECRET, and YOUR_SECRET with actual values from your Google Cloud Console and generated secret. Also, ensure to follow the best practices for managing environment variables and secrets, especially in production environments.

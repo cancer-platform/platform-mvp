@@ -47,3 +47,31 @@ body {
     -webkit-text-fill-color: #fff !important;
     background-image: url('/lock__icon.png'), url('/eye__icon.png') !important;
 }
+
+
+span.hr {
+  overflow: hidden;
+  text-align: center;
+  color: rgba(161, 168, 176, 1);
+}
+
+span.hr::before,
+span.hr::after {
+  background-color: rgba(34, 31, 31, 0.1); 
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+span.hr::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+span::after {
+  left: 0.5em;
+  margin-right: -50%;
+}

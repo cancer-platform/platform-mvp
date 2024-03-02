@@ -23,7 +23,7 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <div className="mt-8">
+        <form className="mt-8">
           <div className="flex items-center">
             <input
               type="email"
@@ -74,13 +74,6 @@ const LoginPage = () => {
               font-inherit
               text-inherit"
             />
-            {/*  <Image
-              src="/eye__icon.png"
-              alt="Eye Icon"
-              className="w-4 h-4 ml-2"
-              width={24}
-              height={24}
-            /> */}
           </div>
           <Link
             href="/restore/"
@@ -88,15 +81,21 @@ const LoginPage = () => {
           >
             Forgot password?
           </Link>
+          <button className="mt-12 rounded-full px-4 py-2 bg-[#407CE2] w-full text-white font-semibold">
+            Sign In
+          </button>
+        </form>
+        <div className="mt-4 flex items-center">
+          <p>Don&apos;t have an account? </p>
+          <Link
+            className="ml-2 text-[#407CE2] leading-4 text-sm"
+            href="/sign-up/"
+          >
+            Sign up
+          </Link>
         </div>
-        <button className="mt-4 rounded-lg px-4 py-2">Sign In</button>
-        <div className="mt-4 text-center">
-          <span>Don&apos;t have an account? </span>
-          <a href="#">Sign up</a>
-        </div>
-        <div className="mt-4 text-center">
-          <hr className="border-t border-black w-full" />
-          <span className="bg-white px-2">OR</span>
+        <div className="mt-4 text-center w-3/4">
+          <span className="hr">OR</span>
         </div>
         <button className="mt-4 rounded-lg px-4 py-2">
           Sign in with Google

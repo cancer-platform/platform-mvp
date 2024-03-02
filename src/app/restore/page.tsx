@@ -59,7 +59,7 @@ const LoginPage = () => {
         </div>
         <div className="mt-4 text-center">
           <hr className="border-t border-black w-full" />
-          <span className="bg-white px-2">OR</span>
+          <span className="hr">OR</span>
         </div>
         <button className="mt-4 rounded-lg px-4 py-2">
           Sign in with Google
