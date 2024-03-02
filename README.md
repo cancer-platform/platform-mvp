@@ -48,8 +48,7 @@ You also find a list with all supported filenames & detailed explanations in the
             - [ ] check global css import in layout
         - [ ] Boarding Pages
             - [ ] Definitely
-                - [ ] Step One
-                - [ ] Step Two
+                - [ ] Tune styles for auto-fill fields
             - [ ] Maybe / Later
                 - [ ] Set up Routing dependent on current url - let`s make this through layout
         - [ ] Questionnaire Page

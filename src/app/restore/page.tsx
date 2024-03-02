@@ -19,7 +19,7 @@ const LoginPage = () => {
             </Link>
           </div>
           <div className="font-bold mt-2 mb-2 ml-11 text-center w-2/5">
-            Sign In
+            Restore Access
           </div>
         </div>
 
@@ -47,46 +47,12 @@ const LoginPage = () => {
                         text-inherit"
             />
           </div>
-          <div className="flex items-center mt-6">
-            {/*  <Image
-              src="/lock__icon.png"
-              alt="Lock Icon"
-              className="w-4 h-4"
-              width={24}
-              height={24}
-            /> */}
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="
-              input-with-images 
-              input-with-2-images 
-              ml-2 
-              mt-px	 
-              w-full 
-              h-14 
-              border-[#221F1F1A] 
-              py-2 
-              pr-8 
-              pl-20 
-              shadow
-              bg-transparent
-              font-inherit
-              text-inherit"
-            />
-            {/*  <Image
-              src="/eye__icon.png"
-              alt="Eye Icon"
-              className="w-4 h-4 ml-2"
-              width={24}
-              height={24}
-            /> */}
-          </div>
+
           <a href="#" className="block text-right mt-2">
-            Forgot password?
+            Forgot email?
           </a>
         </div>
-        <button className="mt-4 rounded-lg px-4 py-2">Sign In</button>
+        <button className="mt-4 rounded-lg px-4 py-2">Send Link</button>
         <div className="mt-4 text-center">
           <span>Don&apos;t have an account? </span>
           <a href="#">Sign up</a>
