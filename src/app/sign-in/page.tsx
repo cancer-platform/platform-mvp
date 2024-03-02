@@ -82,9 +82,12 @@ const LoginPage = () => {
               height={24}
             /> */}
           </div>
-          <a href="#" className="block text-right mt-2">
+          <Link
+            href="/restore/"
+            className="block text-right mt-2 text-[#407CE2] leading-4 text-sm"
+          >
             Forgot password?
-          </a>
+          </Link>
         </div>
         <button className="mt-4 rounded-lg px-4 py-2">Sign In</button>
         <div className="mt-4 text-center">

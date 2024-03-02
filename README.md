@@ -41,6 +41,7 @@ You also find a list with all supported filenames & detailed explanations in the
     - [x] Layout & Pages system implemented
     - [x] Built-in Image component implemented
     - [x] Test of committing from IDE with PGP signature - Fail
+    - [ ] Create components for email field, password field, submit button
     - [ ] Add more pages / layouts
         - [ ] Landing Page
             - [x] Set up Link to the boarding pages
