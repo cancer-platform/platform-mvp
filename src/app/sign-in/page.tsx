@@ -35,6 +35,7 @@ const LoginPage = () => {
                         w-full 
                         h-14 
                         border-[#221F1F1A] 
+                        border
                         bg-[url('/envelope__icon.png')] 
                         bg-no-repeat 
                         bg-[10%]
@@ -44,7 +45,15 @@ const LoginPage = () => {
                         shadow
                         bg-transparent
                         font-inherit
-                        text-inherit"
+                        text-inherit
+                        text-lg
+                        px-4
+                        text-gray-700
+                        placeholder-gray-600
+                        rounded-lg
+                        focus:shadow-outline
+                        mb-2
+                        "
             />
           </div>
           <div className="flex items-center mt-6">
@@ -72,7 +81,17 @@ const LoginPage = () => {
               shadow
               bg-transparent
               font-inherit
-              text-inherit"
+              text-inherit
+              text-lg
+              px-4
+              text-gray-700
+              placeholder-gray-600
+              rounded-lg
+              focus:shadow-outline
+              mb-2
+              px-4
+              border 
+              "
             />
           </div>
           <Link
