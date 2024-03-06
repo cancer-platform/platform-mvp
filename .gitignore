@@ -250,3 +250,5 @@ fabric.properties
 
 /bash.exe.stackdump
 /.vscode
+/.env.development
+/.env.production
