@@ -2,12 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
-  // console.log("Current environment: ", process.env.NODE_ENV);
-  // console.log("Mongodb Connection String: ", process.env.MONGODB_URI);
-  /*   for (const key in process.env) {
-    console.log(`${key}: ${process.env[key]}`);
-  } */
-
   return (
     <>
       <header className="bg-gray-200 py-4" />
