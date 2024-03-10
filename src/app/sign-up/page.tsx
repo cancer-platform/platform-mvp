@@ -2,7 +2,7 @@ import ClientLink from "@/components/client/ClientLink";
 import Image from "next/image";
 import Link from "next/link";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <>
       <header className="bg-gray-200 py-4" />
@@ -20,7 +20,7 @@ const LoginPage = () => {
             </ClientLink>
           </div>
           <div className="font-bold mt-2 mb-2 ml-11 text-center w-2/5">
-            Sign In
+            Register
           </div>
         </div>
 
@@ -95,23 +95,18 @@ const LoginPage = () => {
               "
             />
           </div>
-          <Link
-            href="/restore/"
-            className="block text-right mt-2 text-[#407CE2] leading-4 text-sm"
-          >
-            Forgot password?
-          </Link>
+
           <button className="mt-12 rounded-full px-4 py-2 bg-[#407CE2] w-full text-white font-semibold">
-            Sign In
+            Register
           </button>
         </form>
         <div className="mt-4 flex items-center">
-          <p>Don&apos;t have an account? </p>
+          <p>Already have the account? </p>
           <Link
             className="ml-2 text-[#407CE2] leading-4 text-sm"
-            href="/sign-up/"
+            href="/sign-in/"
           >
-            Sign up
+            Sign in here
           </Link>
         </div>
         <div className="mt-4 text-center w-3/4">
@@ -126,4 +121,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
