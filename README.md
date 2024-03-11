@@ -46,7 +46,7 @@ You also find a list with all supported filenames & detailed explanations in the
   - [x] Layout & Pages system implemented
   - [x] Built-in Image component implemented
   - [x] Test of committing from IDE with PGP signature - Fail
-  - [ ] Migrate Next Auth to v4 after login / auth implementation
+  - [x] Migrate Next Auth to v4 after login / auth implementation
   - [ ] Implement CD / CI
   - [ ] Implement SSL
   - [ ] Create components for email field, password field, submit button
@@ -54,7 +54,7 @@ You also find a list with all supported filenames & detailed explanations in the
     - [ ] Landing Page
       - [x] Set up Link to the boarding pages
       - [ ] define & export const metadata
-      - [ ] check global css import in layout
+      - [x] check global css import in layout
     - [ ] Auth Pages
       - [ ] Implement Token based General Next Auth
       - [ ] Definitely

@@ -1,8 +1,32 @@
+// src\app\sign-up\page.tsx
 import ClientLink from "@/components/client/ClientLink";
 import Image from "next/image";
 import Link from "next/link";
+import ClientRegisterForm from "@/components/client/ClientRegisterForm";
 
 const RegisterPage = () => {
+  const handleSubmit = async (username: string, password: string) => {
+    try {
+      const response = await fetch("/api/create-admin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("User created:", data);
+        // Additional post registration logic could be provided here
+      } else {
+        console.error("Error creating user");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <>
       <header className="bg-gray-200 py-4" />
@@ -23,85 +47,9 @@ const RegisterPage = () => {
             Register
           </div>
         </div>
-
-        <form className="mt-8">
-          <div className="flex items-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="
-              input-with-images 
-                        mt-0.5
-                        ml-2 
-                        w-full 
-                        h-14 
-                        border-[#221F1F1A] 
-                        border
-                        bg-[url('/envelope__icon.png')] 
-                        bg-no-repeat 
-                        bg-[10%]
-                        py-2 
-                        pr-8 
-                        pl-20 
-                        shadow
-                        bg-transparent
-                        font-inherit
-                        text-inherit
-                        text-lg
-                        px-4
-                        text-gray-700
-                        placeholder-gray-600
-                        rounded-lg
-                        focus:shadow-outline
-                        mb-2
-                        "
-            />
-          </div>
-          <div className="flex items-center mt-6">
-            {/*  <Image
-              src="/lock__icon.png"
-              alt="Lock Icon"
-              className="w-4 h-4"
-              width={24}
-              height={24}
-            /> */}
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="
-              input-with-images 
-              input-with-2-images 
-              ml-2 
-              mt-px	 
-              w-full 
-              h-14 
-              border-[#221F1F1A] 
-              py-2 
-              pr-8 
-              pl-20 
-              shadow
-              bg-transparent
-              font-inherit
-              text-inherit
-              text-lg
-              px-4
-              text-gray-700
-              placeholder-gray-600
-              rounded-lg
-              focus:shadow-outline
-              mb-2
-              px-4
-              border 
-              "
-            />
-          </div>
-
-          <button className="mt-12 rounded-full px-4 py-2 bg-[#407CE2] w-full text-white font-semibold">
-            Register
-          </button>
-        </form>
+        <ClientRegisterForm onSubmit={handleSubmit} />
         <div className="mt-4 flex items-center">
-          <p>Already have the account? </p>
+          <p>Already have the account?</p>
           <Link
             className="ml-2 text-[#407CE2] leading-4 text-sm"
             href="/sign-in/"
