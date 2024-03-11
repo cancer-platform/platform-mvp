@@ -5,28 +5,6 @@ import Link from "next/link";
 import ClientRegisterForm from "@/components/client/ClientRegisterForm";
 
 const RegisterPage = () => {
-  const handleSubmit = async (username: string, password: string) => {
-    try {
-      const response = await fetch("/api/create-admin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("User created:", data);
-        // Additional post registration logic could be provided here
-      } else {
-        console.error("Error creating user");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
     <>
       <header className="bg-gray-200 py-4" />
@@ -47,7 +25,7 @@ const RegisterPage = () => {
             Register
           </div>
         </div>
-        <ClientRegisterForm onSubmit={handleSubmit} />
+        <ClientRegisterForm />
         <div className="mt-4 flex items-center">
           <p>Already have the account?</p>
           <Link

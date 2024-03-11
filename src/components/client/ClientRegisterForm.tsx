@@ -4,17 +4,16 @@
 import { useState } from "react";
 import { FormEvent } from "react";
 
-interface RegisterFormProps {
+const RegisterForm = ({
+  onSubmit,
+}: {
   onSubmit: (username: string, password: string) => Promise<void>;
-}
-
-const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
+}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await onSubmit(username, password);
 
     try {
       const response = await fetch("/api/register", {
