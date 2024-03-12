@@ -56,7 +56,12 @@ You also find a list with all supported filenames & detailed explanations in the
       - [ ] define & export const metadata
       - [x] check global css import in layout
     - [ ] Auth Pages
-      - [ ] Implement Token based General Next Auth
+      - [x] Implement Token based General Next Auth according to:
+        - [ ] **Main**: this url https://reacthustle.com/blog/how-to-implement-mongodb-authentication-in-nextjs-nextauthjs
+          - Also: https://code.pieces.app/blog/building-a-fullstack-application-with-next-js-and-mongodb
+          - Also: https://medium.com/nuances-of-programming/%D0%BF%D0%BE%D1%8D%D1%82%D0%B0%D0%BF%D0%BD%D0%BE%D0%B5-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B9-%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%BD%D0%BE%D0%B9-%D1%84%D0%BE%D1%80%D0%BC%D1%8B-%D0%B2-next-js-d54feb110a
+          - Also: https://jasonwatmore.com/next-js-13-app-router-mongodb-user-rego-and-login-tutorial-with-example
+      - [ ] Update the Project with global Error Handling
       - [ ] Definitely
         - [ ] Tune styles for auto-fill fields
         - [ ] Sign-up page
