@@ -1,15 +1,17 @@
-// src\helpers\backLogger.ts
+import pino from "pino";
 
-import { createLogger, format, transports } from "winston";
+const isProduction = process.env.NODE_ENV === "production";
 
-export const backLogger = createLogger({
-  level: "debug",
-  format: format.combine(
-    format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
-    format.errors({ stack: true }),
-    format.splat(),
-    format.json(),
-  ),
-  defaultMeta: { service: "your-service-name" },
-  transports: [new transports.Console({ level: "debug" })],
+export const backLogger = pino({
+  level: "info",
+  base: {
+    service: "your-service-name",
+  },
+  timestamp: pino.stdTimeFunctions.isoTime,
+  transport: isProduction
+    ? undefined
+    : {
+        target: "pino-pretty",
+        options: { colorize: true },
+      },
 });

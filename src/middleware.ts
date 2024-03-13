@@ -1,11 +1,14 @@
-import type { NextConfig } from "next";
+// src/middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import { backLogger } from "@/helpers/backLogger";
 
-const nextConfig: NextConfig = {
-  webpack: (config, options) => {
-    config.middleware.use(backLogger);
-    return config;
-  },
-};
+export function middleware(request: NextRequest) {
+  backLogger.info(`Request to ${request.nextUrl.pathname}`, {
+    method: request.method,
+    headers: request.headers,
+    url: request.nextUrl.href,
+  });
 
-export default nextConfig;
+  return NextResponse.next();
+}

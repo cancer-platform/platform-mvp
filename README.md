@@ -86,6 +86,7 @@ You also find a list with all supported filenames & detailed explanations in the
   - [ ] Merge Tailwind with BEM model
   - [ ] Add an icon.png to app folder as icon for entire project
   - [ ] Add const metadata
+  - [ ] Set up next.config.mjs with internationalization locales
   - [ ] Add Next auth with Google cloud: To add a Google authentication button to your Next.js project using NextAuth, you'll need to follow a series of steps involving installation of the NextAuth library, setting up API routes, configuring environment variables, and then integrating the authentication flow into your app. Here's a simplified guide based on the detailed instructions from the sources:
     - [ ] Install NextAuth: First, add NextAuth to your project:
     ```bash
