@@ -47,6 +47,13 @@ You also find a list with all supported filenames & detailed explanations in the
   - [x] Built-in Image component implemented
   - [x] Test of committing from IDE with PGP signature - Fail
   - [x] Migrate Next Auth to v4 after login / auth implementation
+  - [ ] Setup global access logging
+    - [x] Pino install
+    - [ ] Setup log level in .env - [ ] https://betterstack.com/community/guides/logging/how-to-install-setup-and-use-pino-to-log-node-js-applications/#log-levels-in-pino
+    - [x] Pino log with pino-pretty to dev console
+    - [ ] Pino log to file always
+  - [ ] Setup global server and client error handling
+  - [ ] Setup global client logging
   - [ ] Implement CD / CI
   - [ ] Implement SSL
   - [ ] Create components for email field, password field, submit button
@@ -62,6 +69,8 @@ You also find a list with all supported filenames & detailed explanations in the
           - Also: https://medium.com/nuances-of-programming/%D0%BF%D0%BE%D1%8D%D1%82%D0%B0%D0%BF%D0%BD%D0%BE%D0%B5-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B9-%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%BD%D0%BE%D0%B9-%D1%84%D0%BE%D1%80%D0%BC%D1%8B-%D0%B2-next-js-d54feb110a
           - Also: https://jasonwatmore.com/next-js-13-app-router-mongodb-user-rego-and-login-tutorial-with-example
       - [ ] Update the Project with global Error Handling
+        - [ ] Read this article: https://borstch.com/blog/development/understanding-error-handling-in-nextjs-14
+        - [ ] Read also this: https://medium.com/@martinval11/how-to-handle-errors-on-next-js-using-server-actions-and-client-components-4c4c689b874c
       - [ ] Definitely
         - [ ] Tune styles for auto-fill fields
         - [ ] Sign-up page

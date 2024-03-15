@@ -1,14 +1,33 @@
 // src/middleware.ts
+import pino from "pino";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { backLogger } from "@/helpers/backLogger";
+
+export const backLogger = pino({
+  level: "trace",
+  transport: {
+    target: "pino-pretty",
+    options: {
+      colorize: true,
+    },
+  },
+});
 
 export function middleware(request: NextRequest) {
-  backLogger.info(`Request to ${request.nextUrl.pathname}`, {
-    method: request.method,
-    headers: request.headers,
-    url: request.nextUrl.href,
-  });
+  try {
+    backLogger.trace(`Request to ${request.nextUrl.pathname}`, {
+      method: request.method,
+      headers: request.headers,
+      url: request.nextUrl.href,
+    });
+  } catch (error) {
+    backLogger.error("Error in middleware:", error);
+
+    return new NextResponse(
+      JSON.stringify({ error: "Internal Server Error" }),
+      { status: 500, headers: { "Content-Type": "application/json" } },
+    );
+  }
 
   return NextResponse.next();
 }

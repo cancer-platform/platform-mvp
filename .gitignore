@@ -253,3 +253,4 @@ fabric.properties
 /.env.development
 /.env.production
 /service
+/logs
