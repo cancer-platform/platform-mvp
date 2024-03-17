@@ -1,6 +1,6 @@
 // src/components/client/ClientRegisterForm.tsx
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { FormEvent } from "react";
 
 const RegisterForm = () => {
@@ -9,11 +9,7 @@ const RegisterForm = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isFormValid, setIsFormValid] = useState(false);
 
-  useEffect(() => {
-    validateForm();
-  }, [username, password]);
-
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     let errors: { [key: string]: string } = {};
     if (!username) {
       errors.username = "Email is required.";
@@ -27,7 +23,11 @@ const RegisterForm = () => {
     }
     setErrors(errors);
     setIsFormValid(Object.keys(errors).length === 0);
-  };
+  }, [username, password]);
+
+  useEffect(() => {
+    validateForm();
+  }, [validateForm]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -46,7 +46,7 @@ const RegisterForm = () => {
           const errorData = await response.json();
           setErrors({ username: errorData.error.message });
         } else if (response.ok) {
-          // Registration succesfull
+          // Registration successful
           console.log("User registered successfully");
           // Post registration logic here
         } else {
