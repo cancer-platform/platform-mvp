@@ -8,6 +8,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = useCallback(() => {
     let errors: { [key: string]: string } = {};
@@ -32,6 +33,7 @@ const RegisterForm = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (isFormValid) {
+      setIsSubmitting(true);
       try {
         const response = await fetch("/api/register", {
           method: "POST",
@@ -60,6 +62,8 @@ const RegisterForm = () => {
         console.error("Error:", error);
         // Send error message to the form
         setErrors({ username: "An error occurred. Please try again." });
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
       console.log("Form has errors. Please correct them.");
@@ -97,14 +101,16 @@ const RegisterForm = () => {
         )}
       </div>
       <button
-        disabled={!isFormValid}
+        disabled={!isFormValid || isSubmitting}
         type="submit"
         className={
-          "mt-12 rounded-full px-4 py-2 bg-[#407CE2] w-full text-white font-semibold" +
-          (!isFormValid ? " opacity-25" : "")
+          "mt-12 rounded-full px-4 py-2 bg-[#407CE2] w-full text-white font-semibold transition duration-200" +
+          (!isFormValid || isSubmitting
+            ? " opacity-50 cursor-not-allowed"
+            : " hover:bg-[#3066BE] active:bg-[#244E8E]")
         }
       >
-        Register
+        {isSubmitting ? "Registering..." : "Register"}
       </button>
     </form>
   );
