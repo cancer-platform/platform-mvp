@@ -32,8 +32,6 @@ const RegisterForm = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (isFormValid) {
-      console.log("Form submitted successfully!");
-      // Form submit logic
       try {
         const response = await fetch("/api/register", {
           method: "POST",
@@ -42,20 +40,26 @@ const RegisterForm = () => {
           },
           body: JSON.stringify({ username, password }),
         });
-        if (response.ok) {
-          const data = await response.json();
-          console.log("User created:", data);
-          // Additional after registration logic could be provided here
-        } else {
-          // User create Error handling
+
+        if (response.status === 409) {
+          // User exists
           const errorData = await response.json();
-          console.error("Error creating user:", errorData.error);
-          // Error message on Page or in modal
+          setErrors({ username: errorData.error.message });
+        } else if (response.ok) {
+          // Registration succesfull
+          console.log("User registered successfully");
+          // Post registration logic here
+        } else {
+          // Error handling
+          const errorData = await response.json();
+          console.error(errorData.error.message);
+          // Send error message to the form
+          setErrors({ username: "An error occurred. Please try again." });
         }
       } catch (error) {
         console.error("Error:", error);
-        // Error message on req post
-        // Error message on Page or in modal
+        // Send error message to the form
+        setErrors({ username: "An error occurred. Please try again." });
       }
     } else {
       console.log("Form has errors. Please correct them.");

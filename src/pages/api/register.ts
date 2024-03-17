@@ -24,6 +24,15 @@ export default async function handler(
         });
       }
 
+      // User if exists
+      const existingUser = await users.findOne({ username });
+      if (existingUser) {
+        return res.status(409).json({
+          success: false,
+          error: createError(409, "User already exists"),
+        });
+      }
+
       const hashedPassword = bcrypt.hashSync(password, 10);
 
       await users.insertOne({
