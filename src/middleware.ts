@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export const backLogger = pino({
-  level: "trace",
+  level: "warn",
   transport: {
     target: "pino-pretty",
     options: {
@@ -15,7 +15,7 @@ export const backLogger = pino({
 
 export function middleware(request: NextRequest) {
   try {
-    backLogger.trace(`Request to ${request.nextUrl.pathname}`, {
+    backLogger.info(`Request to ${request.nextUrl.pathname}`, {
       method: request.method,
       headers: request.headers,
       url: request.nextUrl.href,

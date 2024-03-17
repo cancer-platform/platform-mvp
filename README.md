@@ -49,9 +49,9 @@ You also find a list with all supported filenames & detailed explanations in the
   - [x] Migrate Next Auth to v4 after login / auth implementation
   - [ ] Setup global access logging
     - [x] Pino install
-    - [ ] Setup log level in .env - [ ] https://betterstack.com/community/guides/logging/how-to-install-setup-and-use-pino-to-log-node-js-applications/#log-levels-in-pino
-    - [x] Pino log with pino-pretty to dev console
-    - [ ] Pino log to file always
+    - [ ] Setup log settings: - level and transport according to launch mode (dev/prod) and in .env - https://betterstack.com/community/guides/logging/how-to-install-setup-and-use-pino-to-log-node-js-applications/#log-levels-in-pino
+      - [x] Pino log with pino-pretty to dev console
+      - [ ] Pino log to cloud / db always
   - [ ] Setup global server and client error handling
   - [ ] Setup global client logging
   - [ ] Implement CD / CI

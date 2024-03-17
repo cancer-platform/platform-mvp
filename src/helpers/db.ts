@@ -1,3 +1,5 @@
+// src\helpers\db.ts
+
 /* This file will be used to connect to the MongoDB database. 
 This is taken from the next js example: with-mongodb.
 https://github.com/vercel/next.js/blob/canary/examples/with-mongodb/lib/mongodb.ts */

@@ -44,6 +44,7 @@ const RegisterForm = (/* {
     <form className="mt-8" onSubmit={handleSubmit}>
       <div className="flex items-center">
         <input
+          name="username"
           type="text"
           placeholder="Enter your username"
           autoComplete="new-user"
@@ -54,6 +55,7 @@ const RegisterForm = (/* {
       </div>
       <div className="flex items-center mt-6">
         <input
+          name="password"
           type="password"
           placeholder="Enter your password"
           autoComplete="new-password"
