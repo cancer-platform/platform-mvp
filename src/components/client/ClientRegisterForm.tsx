@@ -15,26 +15,22 @@ const RegisterForm = () => {
 
   const validateForm = () => {
     let errors: { [key: string]: string } = {};
-
     if (!username) {
       errors.username = "Email is required.";
     } else if (!/\S+@\S+\.\S+/.test(username)) {
       errors.username = "Email is invalid.";
     }
-
     if (!password) {
       errors.password = "Password is required.";
     } else if (password.length < 6) {
       errors.password = "Password must be at least 6 characters.";
     }
-
     setErrors(errors);
     setIsFormValid(Object.keys(errors).length === 0);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     if (isFormValid) {
       console.log("Form submitted successfully!");
       // Form submit logic
@@ -46,7 +42,6 @@ const RegisterForm = () => {
           },
           body: JSON.stringify({ username, password }),
         });
-
         if (response.ok) {
           const data = await response.json();
           console.log("User created:", data);
@@ -98,8 +93,12 @@ const RegisterForm = () => {
         )}
       </div>
       <button
+        disabled={!isFormValid}
         type="submit"
-        className="mt-12 rounded-full px-4 py-2 bg-[#407CE2] w-full text-white font-semibold"
+        className={
+          "mt-12 rounded-full px-4 py-2 bg-[#407CE2] w-full text-white font-semibold" +
+          (!isFormValid ? " opacity-25" : "")
+        }
       >
         Register
       </button>
