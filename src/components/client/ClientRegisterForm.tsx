@@ -2,8 +2,11 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
+  const router = useRouter();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -32,6 +35,7 @@ const RegisterForm = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     if (isFormValid) {
       setIsSubmitting(true);
       try {
@@ -50,6 +54,8 @@ const RegisterForm = () => {
         } else if (response.ok) {
           // Registration successful
           console.log("User registered successfully");
+          router.push("/sign-in");
+
           // Post registration logic here
         } else {
           // Error handling
