@@ -2,7 +2,7 @@
 import ClientLink from "@/components/client/ClientLink";
 import Image from "next/image";
 import Link from "next/link";
-import ClientRegisterForm from "@/components/client/ClientRegisterForm";
+import ClientAuthForm from "@/components/client/ClientAuthForm";
 
 const RegisterPage = () => {
   return (
@@ -25,7 +25,7 @@ const RegisterPage = () => {
             Register
           </div>
         </div>
-        <ClientRegisterForm />
+        <ClientAuthForm formType={"register"} />
         <div className="mt-4 flex items-center">
           <p>Already have the account?</p>
           <Link

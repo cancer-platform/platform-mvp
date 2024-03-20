@@ -1,10 +1,14 @@
-// src/components/client/ClientRegisterForm.tsx
+// src/components/client/ClientAuthForm.tsx
 "use client";
+interface AuthFormProps {
+  formType: "register" | "login";
+}
+
 import { useState, useEffect, useCallback } from "react";
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
-const RegisterForm = () => {
+const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
   const router = useRouter();
 
   const [username, setUsername] = useState("");
@@ -39,7 +43,9 @@ const RegisterForm = () => {
     if (isFormValid) {
       setIsSubmitting(true);
       try {
-        const response = await fetch("/api/register", {
+        const endpoint =
+          formType === "register" ? "/api/register" : "/api/login";
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -47,32 +53,28 @@ const RegisterForm = () => {
           body: JSON.stringify({ username, password }),
         });
 
-        if (response.status === 409) {
+        if (formType === "register" && response.status === 409) {
           // User exists
           const errorData = await response.json();
           setErrors({ username: errorData.error.message });
         } else if (response.ok) {
-          // Registration successful
-          console.log("User registered successfully");
-          router.push("/sign-in");
-
-          // Post registration logic here
+          if (formType === "register") {
+            console.log("User registered successfully");
+            router.push("/sign-in");
+          } else {
+            console.log("User logged in successfully");
+            router.push("/protected-page");
+          }
         } else {
-          // Error handling
           const errorData = await response.json();
-          console.error(errorData.error.message);
-          // Send error message to the form
-          setErrors({ username: "An error occurred. Please try again." });
+          setErrors({ username: errorData.error.message });
         }
       } catch (error) {
         console.error("Error:", error);
-        // Send error message to the form
         setErrors({ username: "An error occurred. Please try again." });
       } finally {
         setIsSubmitting(false);
       }
-    } else {
-      console.log("Form has errors. Please correct them.");
     }
   };
 
@@ -116,10 +118,16 @@ const RegisterForm = () => {
             : " hover:bg-[#3066BE] active:bg-[#244E8E]")
         }
       >
-        {isSubmitting ? "Registering..." : "Register"}
+        {isSubmitting
+          ? formType === "register"
+            ? "Registering..."
+            : "Logging in..."
+          : formType === "register"
+            ? "Register"
+            : "Log in"}
       </button>
     </form>
   );
 };
 
-export default RegisterForm;
+export default ClientAuthForm;
