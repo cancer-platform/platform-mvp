@@ -57,6 +57,9 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
           // User exists
           const errorData = await response.json();
           setErrors({ username: errorData.error.message });
+        } else if (formType === "login" && response.status === 401) {
+          // Invalid credentials
+          setErrors({ username: "Invalid username or password." });
         } else if (response.ok) {
           if (formType === "register") {
             console.log("User registered successfully");
