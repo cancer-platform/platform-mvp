@@ -16,6 +16,7 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isFormTouched, setIsFormTouched] = useState(false);
 
   const validateForm = useCallback(() => {
     let errors: { [key: string]: string } = {};
@@ -91,9 +92,12 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
           autoComplete="new-user"
           className="input-with-images mt-0.5 ml-2 w-full h-14 border-[#221F1F1A] border bg-[url('/envelope__icon.png')] bg-no-repeat bg-[10%] py-2 pr-8 pl-20 shadow bg-transparent font-inherit text-inherit text-lg px-4 text-gray-700 placeholder-gray-600 rounded-lg focus:shadow-outline"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => {
+            setUsername(e.target.value);
+            setIsFormTouched(true);
+          }}
         />
-        {errors.username && (
+        {errors.username && isFormTouched && (
           <span className="text-red-500 text-sm ml-7">{errors.username}</span>
         )}
       </div>
@@ -105,9 +109,12 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
           autoComplete="new-password"
           className="input-with-images input-with-2-images ml-2 mt-px w-full h-14 border-[#221F1F1A] py-2 pr-8 pl-20 shadow bg-transparent font-inherit text-inherit text-lg px-4 text-gray-700 placeholder-gray-600 rounded-lg focus:shadow-outline px-4 border"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setIsFormTouched(true);
+          }}
         />
-        {errors.password && (
+        {errors.password && isFormTouched && (
           <span className="text-red-500 text-sm ml-7">{errors.password}</span>
         )}
       </div>
