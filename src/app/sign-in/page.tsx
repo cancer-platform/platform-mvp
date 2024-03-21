@@ -26,21 +26,6 @@ const LoginPage = () => {
         </div>
 
         <ClientAuthForm formType={"login"} />
-        <div className="mt-4 flex items-center">
-          <p>Don&apos;t have an account? </p>
-          <Link
-            className="ml-2 text-[#407CE2] leading-4 text-sm"
-            href="/sign-up/"
-          >
-            Sign up
-          </Link>
-        </div>
-        <div className="mt-4 text-center w-3/4">
-          <span className="hr">OR</span>
-        </div>
-        <button className="mt-4 rounded-lg px-4 py-2">
-          Sign in with Google
-        </button>
       </main>
       <footer className="bg-gray-200 py-4" />
     </>
