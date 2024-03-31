@@ -47,6 +47,7 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
       try {
         const endpoint =
           formType === "register" ? "/api/register" : "/api/login";
+        console.log(JSON.stringify({ username, password })); // logging pass/login
         const response = await fetch(endpoint, {
           method: "POST",
           headers: {
