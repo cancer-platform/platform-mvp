@@ -1,7 +1,6 @@
 // src\app\sign-up\page.tsx
 import ClientLink from "@/components/client/ClientLink";
 import Image from "next/image";
-import Link from "next/link";
 import ClientAuthForm from "@/components/client/ClientAuthForm";
 
 const RegisterPage = () => {

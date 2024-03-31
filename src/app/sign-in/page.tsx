@@ -1,7 +1,6 @@
 import ClientAuthForm from "@/components/client/ClientAuthForm";
 import ClientLink from "@/components/client/ClientLink";
 import Image from "next/image";
-import Link from "next/link";
 
 const LoginPage = () => {
   return (
