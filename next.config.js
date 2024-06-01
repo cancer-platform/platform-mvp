@@ -1,24 +1,25 @@
 // next.config.js
 module.exports = {
-  async redirects() {
-    return [
-      {
-        source: "/profile/:path*",
-        destination: "/sign-in",
-        permanent: true,
-      },
-      {
-        source: "/articles/:path*",
-        destination: "/sign-in",
-        permanent: true,
-      },
-      {
-        source: "/questionnaire/:path*",
-        destination: "/sign-in",
-        permanent: true,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/profile/:path*",
+  //       destination: "/sign-in",
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: "/articles/:path*",
+  //       destination: "/sign-in",
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: "/questionnaire/:path*",
+  //       destination: "/sign-in",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
+
   async headers() {
     const allowedOrigins = process.env.ALLOWED_ORIGINS;
     return [

@@ -19,9 +19,9 @@
       }
     ],
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/styles/*": ["src/styles/*"],
-      "@/helpers/*": ["src/helpers/*"]
+      "@/components/*": ["@/components/*"],
+      "@/styles/*": ["@/styles/*"],
+      "@/helpers/*": ["@/helpers/*"]
     }
   },
   "include": [
@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.js"
+    "next.config.js",
+    "src/middleware.ts.disabled"
   ],
   "exclude": ["node_modules", "build"]
 }

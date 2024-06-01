@@ -4,7 +4,7 @@ import Link from "next/link";
 interface AuthFormProps {
   formType: "register" | "login";
 }
-
+import { useSession } from "next-auth/react";
 import { useState, useEffect, useCallback } from "react";
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
@@ -18,6 +18,7 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFormTouched, setIsFormTouched] = useState(false);
+  const { data: session, status } = useSession();
 
   const validateForm = useCallback(() => {
     let errors: { [key: string]: string } = {};
@@ -38,6 +39,12 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
   useEffect(() => {
     validateForm();
   }, [validateForm]);
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/welcome");
+    }
+  }, [status, router]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -69,7 +76,7 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
             router.push("/sign-in");
           } else {
             console.log("User logged in successfully");
-            router.push("/protected-page");
+            router.push("/welcome");
           }
         } else {
           const errorData = await response.json();
@@ -110,7 +117,7 @@ const ClientAuthForm = ({ formType }: { formType: "register" | "login" }) => {
             type="password"
             placeholder="Enter your password"
             autoComplete="new-password"
-            className="input-with-images input-with-2-images ml-2 mt-px w-full h-14 border-[#221F1F1A] py-2 pr-8 pl-20 shadow bg-transparent font-inherit text-inherit text-lg px-4 text-gray-700 placeholder-gray-600 rounded-lg focus:shadow-outline px-4 border"
+            className="input-with-images input-with-2-images ml-2 mt-px w-full h-14 border-[#221F1F1A] py-2 pr-8 pl-20 shadow bg-transparent font-inherit text-inherit text-lg px-4 text-gray-700 placeholder-gray-600 rounded-lg focus:shadow-outline border"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
