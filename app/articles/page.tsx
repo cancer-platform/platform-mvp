@@ -12,14 +12,14 @@
  *
  * */
 
-import { nextauthOptions } from "@/helpers/nextAuthOptions";
+import { authOptions } from "@/helpers/nextAuthOptions";
 import { getServerSession } from "next-auth/next";
 import React from "react";
 import { redirect } from "next/navigation";
 
 export default async function RestrictedPage() {
   // get the session
-  const session = await getServerSession(nextauthOptions);
+  const session = await getServerSession(authOptions);
 
   // redirect to sign in if there is no session.
   if (!session?.user) {

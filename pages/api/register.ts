@@ -3,7 +3,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import createError from "http-errors";
 import bcrypt from "bcrypt";
-import clientPromise from "../../helpers/db";
+import clientPromise from "@/helpers/db";
 
 export default async function handler(
   req: NextApiRequest,
