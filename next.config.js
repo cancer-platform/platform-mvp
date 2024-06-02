@@ -21,7 +21,7 @@ module.exports = {
   // },
 
   async headers() {
-    const allowedOrigins = process.env.ALLOWED_ORIGINS;
+    const allowedOrigins = process.env.ALLOWED_ORIGINS || "*";
     return [
       {
         source: "/api/:path*",
