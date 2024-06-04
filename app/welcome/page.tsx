@@ -4,7 +4,14 @@ import React from "react";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { User } from "next-auth";
-
+import AuthorizedLayout from "@/layouts/AuthorizedLayout";
+import { ReactNode } from "react";
+interface AuthLayoutProps {
+  children: ReactNode;
+}
+const AuthLayout = ({ children }: AuthLayoutProps) => {
+  return <AuthorizedLayout>{children}</AuthorizedLayout>;
+};
 export default async function RestrictedPage() {
   // get the session
   const session = (await getServerSession(authOptions as NextAuthOptions)) as {
@@ -21,8 +28,10 @@ export default async function RestrictedPage() {
   // display the page
   return (
     <div>
-      <h1>Welcome to the Hello Page, {session?.user?.name}</h1>
-      <Button>Click me</Button>
+      <AuthLayout>
+        <h1>Welcome to the Hello Page, {session?.user?.name}</h1>
+        <Button>Click me</Button>
+      </AuthLayout>
     </div>
   );
 }
