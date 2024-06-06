@@ -1,3 +1,5 @@
+"use client";
+import clientPromise from "@/helpers/db";
 import { signOut } from "next-auth/react";
 import { SessionProvider } from "next-auth/react";
 import { useSession } from "next-auth/react";
